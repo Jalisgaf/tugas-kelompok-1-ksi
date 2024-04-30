@@ -43,22 +43,22 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="ctDekrip" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
-                                          <Component id="k1Dekrip" alignment="0" min="-2" pref="48" max="-2" attributes="0"/>
+                                          <Component id="inputDeskrip" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
+                                          <Component id="kunciDekrip" alignment="0" min="-2" pref="48" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
-                                          <Component id="ptDekrip" min="-2" pref="189" max="-2" attributes="0"/>
+                                          <Component id="outputDekrip" min="-2" pref="189" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                              <Component id="prosesDekrip" min="-2" max="-2" attributes="0"/>
+                              <Component id="tblDekrip" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -75,7 +75,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                              <Component id="ctEnkrip" min="-2" pref="186" max="-2" attributes="0"/>
+                              <Component id="outputEnkripsi" min="-2" pref="186" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -84,13 +84,13 @@
                               </Group>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="ptEnkrip" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                                  <Component id="k1Enkrip" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
+                                  <Component id="inputEnkripsi" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
+                                  <Component id="kunciEnkripsi" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                              <Component id="prosesEnkrip" min="-2" max="-2" attributes="0"/>
+                              <Component id="tblEnkripsi" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -111,19 +111,19 @@
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ptEnkrip" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="inputEnkripsi" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="k1Enkrip" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="kunciEnkripsi" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Component id="prosesEnkrip" min="-2" max="-2" attributes="0"/>
+              <Component id="tblEnkripsi" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ctEnkrip" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="outputEnkripsi" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
@@ -132,19 +132,19 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ctDekrip" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="inputDeskrip" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="k1Dekrip" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="kunciDekrip" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="prosesDekrip" min="-2" max="-2" attributes="0"/>
+              <Component id="tblDekrip" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ptDekrip" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="outputDekrip" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="40" max="32767" attributes="0"/>
           </Group>
@@ -167,27 +167,27 @@
         <Property name="text" type="java.lang.String" value="Chiper Teks"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="prosesEnkrip">
+    <Component class="javax.swing.JButton" name="tblEnkripsi">
       <Properties>
         <Property name="text" type="java.lang.String" value="Proses"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="prosesEnkripActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tblEnkripsiActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="k1Enkrip">
+    <Component class="javax.swing.JTextField" name="kunciEnkripsi">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="k1EnkripActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kunciEnkripsiActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="ptEnkrip">
+    <Component class="javax.swing.JTextField" name="inputEnkripsi">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ptEnkripActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputEnkripsiActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="ctEnkrip">
+    <Component class="javax.swing.JTextField" name="outputEnkripsi">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ctEnkripActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="outputEnkripsiActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -195,19 +195,19 @@
         <Property name="text" type="java.lang.String" value="Enkripsi Teknik Polyalphabetical"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="prosesDekrip">
+    <Component class="javax.swing.JButton" name="tblDekrip">
       <Properties>
         <Property name="text" type="java.lang.String" value="Proses"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="prosesDekripActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tblDekripActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="ctDekrip">
+    <Component class="javax.swing.JTextField" name="inputDeskrip">
     </Component>
-    <Component class="javax.swing.JTextField" name="k1Dekrip">
+    <Component class="javax.swing.JTextField" name="kunciDekrip">
     </Component>
-    <Component class="javax.swing.JTextField" name="ptDekrip">
+    <Component class="javax.swing.JTextField" name="outputDekrip">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>

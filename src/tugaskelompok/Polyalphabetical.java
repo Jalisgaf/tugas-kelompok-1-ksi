@@ -4,6 +4,8 @@
  */
 package tugaskelompok;
 
+import java.util.HashMap;
+import java.util.Map;
 /**
  *
  * @author jalisgaf
@@ -13,6 +15,9 @@ public class Polyalphabetical extends javax.swing.JFrame {
     /**
      * Creates new form Polyalphabetical
      */
+    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+    
+    
     public Polyalphabetical() {
         initComponents();
     }
@@ -29,15 +34,15 @@ public class Polyalphabetical extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        prosesEnkrip = new javax.swing.JButton();
-        k1Enkrip = new javax.swing.JTextField();
-        ptEnkrip = new javax.swing.JTextField();
-        ctEnkrip = new javax.swing.JTextField();
+        tblEnkripsi = new javax.swing.JButton();
+        kunciEnkripsi = new javax.swing.JTextField();
+        inputEnkripsi = new javax.swing.JTextField();
+        outputEnkripsi = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        prosesDekrip = new javax.swing.JButton();
-        ctDekrip = new javax.swing.JTextField();
-        k1Dekrip = new javax.swing.JTextField();
-        ptDekrip = new javax.swing.JTextField();
+        tblDekrip = new javax.swing.JButton();
+        inputDeskrip = new javax.swing.JTextField();
+        kunciDekrip = new javax.swing.JTextField();
+        outputDekrip = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -52,37 +57,37 @@ public class Polyalphabetical extends javax.swing.JFrame {
 
         jLabel4.setText("Chiper Teks");
 
-        prosesEnkrip.setText("Proses");
-        prosesEnkrip.addActionListener(new java.awt.event.ActionListener() {
+        tblEnkripsi.setText("Proses");
+        tblEnkripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                prosesEnkripActionPerformed(evt);
+                tblEnkripsiActionPerformed(evt);
             }
         });
 
-        k1Enkrip.addActionListener(new java.awt.event.ActionListener() {
+        kunciEnkripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                k1EnkripActionPerformed(evt);
+                kunciEnkripsiActionPerformed(evt);
             }
         });
 
-        ptEnkrip.addActionListener(new java.awt.event.ActionListener() {
+        inputEnkripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ptEnkripActionPerformed(evt);
+                inputEnkripsiActionPerformed(evt);
             }
         });
 
-        ctEnkrip.addActionListener(new java.awt.event.ActionListener() {
+        outputEnkripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctEnkripActionPerformed(evt);
+                outputEnkripsiActionPerformed(evt);
             }
         });
 
         jLabel1.setText("Enkripsi Teknik Polyalphabetical");
 
-        prosesDekrip.setText("Proses");
-        prosesDekrip.addActionListener(new java.awt.event.ActionListener() {
+        tblDekrip.setText("Proses");
+        tblDekrip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                prosesDekripActionPerformed(evt);
+                tblDekripActionPerformed(evt);
             }
         });
 
@@ -116,16 +121,16 @@ public class Polyalphabetical extends javax.swing.JFrame {
                                             .addComponent(jLabel7))
                                         .addGap(23, 23, 23)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(ctDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(k1Dekrip, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(inputDeskrip, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(kunciDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel8)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                             .addGap(114, 114, 114)
-                                            .addComponent(ptDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addComponent(outputDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(89, 89, 89)
-                                .addComponent(prosesDekrip)))
+                                .addComponent(tblDekrip)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jSeparator1))
                 .addContainerGap())
@@ -137,18 +142,18 @@ public class Polyalphabetical extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(56, 56, 56)
-                                .addComponent(ctEnkrip, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(outputEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel2))
                                 .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ptEnkrip, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(k1Enkrip, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(inputEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(kunciEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(68, 68, 68)
-                                .addComponent(prosesEnkrip))))
+                                .addComponent(tblEnkripsi))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(107, 107, 107)
                         .addComponent(jLabel5)))
@@ -162,17 +167,17 @@ public class Polyalphabetical extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(ptEnkrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(k1Enkrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kunciEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
-                .addComponent(prosesEnkrip)
+                .addComponent(tblEnkripsi)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(ctEnkrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(outputEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -180,42 +185,46 @@ public class Polyalphabetical extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(ctDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputDeskrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7)
-                    .addComponent(k1Dekrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kunciDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(prosesDekrip)
+                .addComponent(tblDekrip)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(ptDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(outputDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void prosesEnkripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prosesEnkripActionPerformed
+    private void tblEnkripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblEnkripsiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_prosesEnkripActionPerformed
+        String inputEnkripVar = this.inputEnkripsi.getText().toLowerCase();
+        String kunciEnkripvar = this.kunciEnkripsi.getText().toLowerCase();
+        
+        
+    }//GEN-LAST:event_tblEnkripsiActionPerformed
 
-    private void k1EnkripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k1EnkripActionPerformed
+    private void kunciEnkripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kunciEnkripsiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_k1EnkripActionPerformed
+    }//GEN-LAST:event_kunciEnkripsiActionPerformed
 
-    private void ptEnkripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ptEnkripActionPerformed
+    private void inputEnkripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEnkripsiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ptEnkripActionPerformed
+    }//GEN-LAST:event_inputEnkripsiActionPerformed
 
-    private void ctEnkripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctEnkripActionPerformed
+    private void outputEnkripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputEnkripsiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ctEnkripActionPerformed
+    }//GEN-LAST:event_outputEnkripsiActionPerformed
 
-    private void prosesDekripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prosesDekripActionPerformed
+    private void tblDekripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblDekripActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_prosesDekripActionPerformed
+    }//GEN-LAST:event_tblDekripActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,8 +262,8 @@ public class Polyalphabetical extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ctDekrip;
-    private javax.swing.JTextField ctEnkrip;
+    private javax.swing.JTextField inputDeskrip;
+    private javax.swing.JTextField inputEnkripsi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -264,11 +273,11 @@ public class Polyalphabetical extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField k1Dekrip;
-    private javax.swing.JTextField k1Enkrip;
-    private javax.swing.JButton prosesDekrip;
-    private javax.swing.JButton prosesEnkrip;
-    private javax.swing.JTextField ptDekrip;
-    private javax.swing.JTextField ptEnkrip;
+    private javax.swing.JTextField kunciDekrip;
+    private javax.swing.JTextField kunciEnkripsi;
+    private javax.swing.JTextField outputDekrip;
+    private javax.swing.JTextField outputEnkripsi;
+    private javax.swing.JButton tblDekrip;
+    private javax.swing.JButton tblEnkripsi;
     // End of variables declaration//GEN-END:variables
 }

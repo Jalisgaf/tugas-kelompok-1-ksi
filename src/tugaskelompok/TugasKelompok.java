@@ -15,7 +15,8 @@ public class TugasKelompok {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        MenuUtama menu = new MenuUtama();
+        menu.setVisible(true);
     }
     
 }
