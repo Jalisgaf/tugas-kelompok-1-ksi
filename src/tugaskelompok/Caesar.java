@@ -13,8 +13,10 @@ public class Caesar extends javax.swing.JFrame {
     /**
      * Creates new form Caesar
      */
+    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+    
     public Caesar() {
-        initComponents();
+        initComponents();    
     }
 
     /**
@@ -193,7 +195,25 @@ public class Caesar extends javax.swing.JFrame {
 
     private void prosesEnkripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prosesEnkripActionPerformed
         // TODO add your handling code here:
+        String pt = this.ptEnkrip.getText().toLowerCase();
+        int pk = Integer.parseInt(this.pkEnkrip.getText());
         
+        String encryptStr = "";
+        
+        for (int i = 0; i < pt.length(); i++)   
+        {   
+            // get position of each character of inputStr in ALPHABET   
+            int pos = ALPHABET.indexOf(pt.charAt(i));   
+              
+            // get encrypted char for each char of inputStr   
+            int encryptPos = (pk + pos) % 26;   
+            char encryptChar = ALPHABET.charAt(encryptPos);   
+              
+            // add encrypted char to encrypted string   
+            encryptStr += encryptChar;   
+        }   
+        
+        ctEnkrip.setText(encryptStr);
     }//GEN-LAST:event_prosesEnkripActionPerformed
 
     private void pkEnkripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pkEnkripActionPerformed
@@ -210,6 +230,31 @@ public class Caesar extends javax.swing.JFrame {
 
     private void prosesDekripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prosesDekripActionPerformed
         // TODO add your handling code here:
+        String ct = this.ctDekrip.getText().toLowerCase();
+        int pk = Integer.parseInt(this.pkDekrip.getText());
+        
+        String decryptStr = "";
+        
+        for (int i = 0; i < ct.length(); i++)   
+        {   
+              
+            // get position of each character of inputStr in ALPHABET   
+            int pos = ALPHABET.indexOf(ct.charAt(i));   
+              
+            // get decrypted char for each char of inputStr   
+            int decryptPos = (pos - pk) % 26;   
+              
+            // if decryptPos is negative   
+            if (decryptPos < 0){   
+                decryptPos = ALPHABET.length() + decryptPos;   
+            }   
+            char decryptChar = ALPHABET.charAt(decryptPos);   
+              
+            // add decrypted char to decrypted string   
+            decryptStr += decryptChar;   
+        }      
+        
+        ptDekrip.setText(decryptStr);
     }//GEN-LAST:event_prosesDekripActionPerformed
 
     /**
