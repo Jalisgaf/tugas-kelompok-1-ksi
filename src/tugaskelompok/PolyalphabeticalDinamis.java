@@ -247,19 +247,21 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
 
         SwingUtilities.invokeLater(() -> {
             jPanelKunciEnkripsi.setLayout(new BoxLayout(jPanelKunciEnkripsi, BoxLayout.Y_AXIS));
-//            int jlhKunci = (int) jumlahKunci.getSelectedItem();
-            JPanel kunciEnkripsi = new JPanel();
-            JLabel labelKunciEnkripsi = new JLabel();
-            JTextField inputKunciEnkripsi = new JTextField(20);
+            Integer jlhKunci = (Integer) jumlahKunci.getSelectedIndex() + 1;
 
-            for (int i = 1; i <= 3; i++) {
-                labelKunciEnkripsi.setText("Kunci " + i + " :");
-                kunciEnkripsi.add(labelKunciEnkripsi);
-                kunciEnkripsi.add(inputKunciEnkripsi);
-                jPanelKunciEnkripsi.add(kunciEnkripsi);
+            JPanel[] panelInputEnkripsi = new JPanel[jlhKunci];
+
+            for (int i = 0; i < panelInputEnkripsi.length; i++) {
+                panelInputEnkripsi[i] = new JPanel();
+                JLabel labelKunciEnkripsi = new JLabel("Kunci " + (i + 1) + " :");
+                JTextField inputKunciEnkripsi = new JTextField(20);
+                panelInputEnkripsi[i].add(labelKunciEnkripsi);
+                panelInputEnkripsi[i].add(inputKunciEnkripsi);
+                jPanelKunciEnkripsi.add(panelInputEnkripsi[i]);
+
                 jFramePolyalphabeticalDinamis.add(jPanelKunciEnkripsi);
             }
-            
+
             jFramePolyalphabeticalDinamis.pack();
             jFramePolyalphabeticalDinamis.setVisible(true);
         });
