@@ -50,6 +50,11 @@ public class MenuUtama extends javax.swing.JFrame {
         });
 
         polyalphabeticalDinamisMenu.setText("Polyalphabetical Dinamis");
+        polyalphabeticalDinamisMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                polyalphabeticalDinamisMenuActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("NIM ANGGOTA 1 : 10120173");
 
@@ -111,6 +116,13 @@ public class MenuUtama extends javax.swing.JFrame {
         polyalphabetical.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_polyalphabeticalMenuActionPerformed
+
+    private void polyalphabeticalDinamisMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_polyalphabeticalDinamisMenuActionPerformed
+        // TODO add your handling code here:
+        PolyalphabeticalDinamis pDinamis = new PolyalphabeticalDinamis();
+        pDinamis.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_polyalphabeticalDinamisMenuActionPerformed
 
     /**
      * @param args the command line arguments

@@ -22,6 +22,114 @@ public class Polyalphabetical extends javax.swing.JFrame {
         initComponents();
     }
 
+    public class ProsesEnkripsi {
+
+        public String trimKunci(String inputEnkripVar, String kunciEnkripVar) {
+            String kunciDiProses = new String();
+            int tempIndex = 0;
+            for (int i = 0; i < kunciEnkripVar.length(); i++) {
+                if (i == 0) {
+                    kunciDiProses = String.valueOf(kunciEnkripVar.charAt(i));
+                } else if (kunciDiProses.contains(String.valueOf(kunciEnkripVar.charAt(i)))) {
+                    var tempChar = kunciEnkripVar.charAt(i);
+                    tempIndex = kunciDiProses.indexOf(tempChar);
+                    StringBuilder sb = new StringBuilder(kunciDiProses);
+                    sb.deleteCharAt(tempIndex);
+                    kunciDiProses = sb.toString() + tempChar;
+                } else if (kunciEnkripVar.charAt(i) != kunciEnkripVar.charAt(i - 1)) {
+                    kunciDiProses = kunciDiProses.concat(String.valueOf(kunciEnkripVar.charAt(i)));
+                }
+            }
+            return kunciDiProses;
+        }
+
+        public String susunModifiedAlphabet(String kunciDiProses) {
+            String modifiedAlphabet = new String();
+            StringBuilder tempVar = new StringBuilder(modifiedAlphabet);
+            for (int i = 0; i < ALPHABET.length(); i++) {
+                char currentChar = ALPHABET.charAt(i);
+
+                // Check if the character is not already in modifiedAlphabet
+                if (!kunciDiProses.contains(String.valueOf(currentChar))) {
+                    // Append the character to modifiedAlphabet using StringBuilder
+                    tempVar.append(currentChar).toString();
+                }
+            }
+            modifiedAlphabet = kunciDiProses + tempVar;
+            return modifiedAlphabet;
+        }
+
+        public String showResult(String modifiedAlphabet, String inputEnkripVar) {
+            StringBuilder hasilEnkripsi = new StringBuilder();
+            for (char c : inputEnkripVar.toCharArray()) {
+                // Find the index of the character in the alphabet
+                int index = ALPHABET.indexOf(c);
+                // Use the same index to get the corresponding character from the 'enkripsi' string
+                char encryptedChar = modifiedAlphabet.charAt(index);
+                // Append the encrypted character to the result
+                hasilEnkripsi.append(encryptedChar);
+            }
+            return hasilEnkripsi.toString();
+        }
+
+    }
+
+    public class ProsesDekripsi {
+
+        public String trimKunci(String inputDekripVar, String kunciDekripVar) {
+            String kunciDiProses = new String();
+            int tempIndex = 0;
+
+            for (int i = 0; i < kunciDekripVar.length(); i++) {
+                if (i == 0) {
+                    kunciDiProses = String.valueOf(kunciDekripVar.charAt(i));
+                } else if (kunciDiProses.contains(String.valueOf(kunciDekripVar.charAt(i)))) {
+                    var tempChar = kunciDekripVar.charAt(i);
+                    tempIndex = kunciDiProses.indexOf(tempChar);
+                    StringBuilder sb = new StringBuilder(kunciDiProses);
+                    sb.deleteCharAt(tempIndex);
+                    kunciDiProses = sb.toString() + tempChar;
+                } else if (kunciDekripVar.charAt(i) != kunciDekripVar.charAt(i - 1)) {
+                    kunciDiProses = kunciDiProses.concat(String.valueOf(kunciDekripVar.charAt(i)));
+                }
+            }
+
+            return kunciDiProses;
+        }
+
+        public String susunModifiedAlphabet(String kunciDiProses) {
+            String modifiedAlphabet = new String();
+            StringBuilder tempVar = new StringBuilder(modifiedAlphabet);
+
+            for (int i = 0; i < ALPHABET.length(); i++) {
+                char currentChar = ALPHABET.charAt(i);
+
+                // Check if the character is not already in modifiedAlphabet
+                if (!kunciDiProses.contains(String.valueOf(currentChar))) {
+                    // Append the character to modifiedAlphabet using StringBuilder
+                    tempVar.append(currentChar).toString();
+                }
+            }
+            modifiedAlphabet = kunciDiProses + tempVar;
+            return modifiedAlphabet;
+        }
+
+        public String showResult(String modifiedAlphabet, String inputDekripVar) {
+            StringBuilder hasilDekripsi = new StringBuilder();
+
+            // Iterate through each character in the encrypted input
+            for (char encryptedChar : inputDekripVar.toCharArray()) {
+                // Find the index of the character in the modified alphabet
+                int index = modifiedAlphabet.indexOf(encryptedChar);
+                // Use the same index to get the corresponding character from the original alphabet
+                char decryptedChar = ALPHABET.charAt(index);
+                // Append the decrypted character to the result
+                hasilDekripsi.append(decryptedChar);
+            }
+            return hasilDekripsi.toString();
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -203,53 +311,15 @@ public class Polyalphabetical extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblEnkripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblEnkripsiActionPerformed
-        // TODO add your handling code here:
-        String inputEnkripVar = this.inputEnkripsi.getText().toLowerCase();
-        String kunciEnkripVar = this.kunciEnkripsi.getText().toLowerCase();
-        String kunciDiProses = new String();
-        String modifiedAlphabet = new String();
-        StringBuilder hasilEnkripsi = new StringBuilder();
+        String inputEnkripVar = inputEnkripsi.getText().toLowerCase();
+        String kunciEnkripVar = kunciEnkripsi.getText().toLowerCase();
 
-        int tempIndex = 0;
+        ProsesEnkripsi prosesEnkripsi = new ProsesEnkripsi();
+        String kunciDiProses = prosesEnkripsi.trimKunci(inputEnkripVar, kunciEnkripVar);
+        String modifiedAlphabet = prosesEnkripsi.susunModifiedAlphabet(kunciDiProses);
+        String hasilEnkripsi = prosesEnkripsi.showResult(modifiedAlphabet, inputEnkripVar);
 
-        for (int i = 0; i < kunciEnkripVar.length(); i++) {
-            if (i == 0) {
-                kunciDiProses = String.valueOf(kunciEnkripVar.charAt(i));
-            } else if (kunciDiProses.contains(String.valueOf(kunciEnkripVar.charAt(i)))) {
-                var tempChar = kunciEnkripVar.charAt(i);
-                tempIndex = kunciDiProses.indexOf(tempChar);
-                StringBuilder sb = new StringBuilder(kunciDiProses);
-                sb.deleteCharAt(tempIndex);
-                kunciDiProses = sb.toString() + tempChar;
-            } else if (kunciEnkripVar.charAt(i) != kunciEnkripVar.charAt(i - 1)) {
-                kunciDiProses = kunciDiProses.concat(String.valueOf(kunciEnkripVar.charAt(i)));
-            }
-        }
-
-        StringBuilder tempVar = new StringBuilder(modifiedAlphabet);
-        for (int i = 0; i < ALPHABET.length(); i++) {
-            char currentChar = ALPHABET.charAt(i);
-
-            // Check if the character is not already in modifiedAlphabet
-            if (!kunciDiProses.contains(String.valueOf(currentChar))) {
-                // Append the character to modifiedAlphabet using StringBuilder
-                tempVar.append(currentChar).toString();
-            }
-        }
-        modifiedAlphabet = kunciDiProses + tempVar;
-
-        // Initialize an empty string to store the encrypted result
-        // Iterate through each character in the input word
-        for (char c : inputEnkripVar.toCharArray()) {
-            // Find the index of the character in the alphabet
-            int index = ALPHABET.indexOf(c);
-            // Use the same index to get the corresponding character from the 'enkripsi' string
-            char encryptedChar = modifiedAlphabet.charAt(index);
-            // Append the encrypted character to the result
-            hasilEnkripsi.append(encryptedChar);
-        }
-
-        outputEnkripsi.setText(hasilEnkripsi.toString());
+        outputEnkripsi.setText(hasilEnkripsi);
     }//GEN-LAST:event_tblEnkripsiActionPerformed
 
     private void kunciEnkripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kunciEnkripsiActionPerformed
@@ -268,50 +338,13 @@ public class Polyalphabetical extends javax.swing.JFrame {
         // TODO add your handling code here:
         String inputDekripVar = this.inputDekrip.getText().toLowerCase();
         String kunciDekripVar = this.kunciDekrip.getText().toLowerCase();
-        String kunciDiProses = new String();
-        String modifiedAlphabet = new String();
-        int tempIndex = 0;
+        
+        ProsesDekripsi prosesDekripsi = new ProsesDekripsi();
+        String kunciDiProses = prosesDekripsi.trimKunci(inputDekripVar, kunciDekripVar);
+        String modifiedAlphabet = prosesDekripsi.susunModifiedAlphabet(kunciDiProses);
+        String hasilDekripsi = prosesDekripsi.showResult(modifiedAlphabet, inputDekripVar);
 
-        for (int i = 0; i < kunciDekripVar.length(); i++) {
-            if (i == 0) {
-                kunciDiProses = String.valueOf(kunciDekripVar.charAt(i));
-            } else if (kunciDiProses.contains(String.valueOf(kunciDekripVar.charAt(i)))) {
-                var tempChar = kunciDekripVar.charAt(i);
-                tempIndex = kunciDiProses.indexOf(tempChar);
-                StringBuilder sb = new StringBuilder(kunciDiProses);
-                sb.deleteCharAt(tempIndex);
-                kunciDiProses = sb.toString() + tempChar;
-            } else if (kunciDekripVar.charAt(i) != kunciDekripVar.charAt(i - 1)) {
-                kunciDiProses = kunciDiProses.concat(String.valueOf(kunciDekripVar.charAt(i)));
-            }
-        }
-
-        StringBuilder tempVar = new StringBuilder(modifiedAlphabet);
-        for (int i = 0; i < ALPHABET.length(); i++) {
-            char currentChar = ALPHABET.charAt(i);
-
-            // Check if the character is not already in modifiedAlphabet
-            if (!kunciDiProses.contains(String.valueOf(currentChar))) {
-                // Append the character to modifiedAlphabet using StringBuilder
-                tempVar.append(currentChar).toString();
-            }
-        }
-        modifiedAlphabet = kunciDiProses + tempVar;
-
-        // Initialize an empty string to store the decrypted result
-        StringBuilder hasilDekripsi = new StringBuilder();
-
-        // Iterate through each character in the encrypted input
-        for (char encryptedChar : inputDekripVar.toCharArray()) {
-            // Find the index of the character in the modified alphabet
-            int index = modifiedAlphabet.indexOf(encryptedChar);
-            // Use the same index to get the corresponding character from the original alphabet
-            char decryptedChar = ALPHABET.charAt(index);
-            // Append the decrypted character to the result
-            hasilDekripsi.append(decryptedChar);
-        }
-
-        outputDekripsi.setText(hasilDekripsi.toString());
+        outputDekripsi.setText(hasilDekripsi);
     }//GEN-LAST:event_tblDekripActionPerformed
 
     /**
