@@ -5,9 +5,6 @@
 package tugaskelompok;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  *
@@ -18,26 +15,19 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
     /**
      * Creates new form PilihKunci
      */
-    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-    private JPanel[] panelInputEnkripsi;
+    public static final String ALPHABET = MenuUtama.ALPHABET;
+
+    private JPanel[] rowKunciEnkripsi;
     private JTextField[] kunciEnkripsi;
 
-    private JPanel[] panelInputDekripsi;
+    private JPanel[] rowKunciDekripsi;
     private JTextField[] kunciDekripsi;
 
-    Integer jlhKunci = new Integer(0);
+    int jlhKunci = 0;
 
     public PolyalphabeticalDinamis() {
         initComponents();
     }
-//
-//    public JPanel[] getPanelKunciEnkripsi() {
-//        return panelInputEnkripsi;
-//    }
-//
-//    public JTextField[] getInputKunciEnkripsi() {
-//        return kunciEnkripsi;
-//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,24 +42,26 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         outputEnkrip = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        inputDekrip = new javax.swing.JTextField();
+        inputDekripsi = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         outputDekrip = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         tblDekripsi = new javax.swing.JButton();
-        inputEnkrip = new javax.swing.JTextField();
+        inputEnkripsi = new javax.swing.JTextField();
         tblEnkripsi = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        jPanelKunciEnkripsi = new javax.swing.JPanel();
-        jPanelKunciDekripsi = new javax.swing.JPanel();
+        containerKunciEnkripsi = new javax.swing.JPanel();
+        containerKunciDekripsi = new javax.swing.JPanel();
         tblProses = new javax.swing.JButton();
         jumlahKunci = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
+        jFramePolyalphabeticalDinamis.setTitle("Polyalphabetical Dinamis");
+        jFramePolyalphabeticalDinamis.setBounds(new java.awt.Rectangle(100, 100, 0, 0));
         jFramePolyalphabeticalDinamis.setSize(new java.awt.Dimension(400, 500));
 
         jLabel5.setText("Enkripsi Teknik Polyalphabetical Dinamis");
@@ -95,9 +87,9 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
             }
         });
 
-        inputEnkrip.addActionListener(new java.awt.event.ActionListener() {
+        inputEnkripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputEnkripActionPerformed(evt);
+                inputEnkripsiActionPerformed(evt);
             }
         });
 
@@ -108,29 +100,29 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
             }
         });
 
-        jPanelKunciEnkripsi.setBackground(new java.awt.Color(255, 255, 255));
+        containerKunciEnkripsi.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanelKunciEnkripsiLayout = new javax.swing.GroupLayout(jPanelKunciEnkripsi);
-        jPanelKunciEnkripsi.setLayout(jPanelKunciEnkripsiLayout);
-        jPanelKunciEnkripsiLayout.setHorizontalGroup(
-            jPanelKunciEnkripsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout containerKunciEnkripsiLayout = new javax.swing.GroupLayout(containerKunciEnkripsi);
+        containerKunciEnkripsi.setLayout(containerKunciEnkripsiLayout);
+        containerKunciEnkripsiLayout.setHorizontalGroup(
+            containerKunciEnkripsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanelKunciEnkripsiLayout.setVerticalGroup(
-            jPanelKunciEnkripsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        containerKunciEnkripsiLayout.setVerticalGroup(
+            containerKunciEnkripsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        jPanelKunciDekripsi.setBackground(new java.awt.Color(255, 255, 255));
+        containerKunciDekripsi.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanelKunciDekripsiLayout = new javax.swing.GroupLayout(jPanelKunciDekripsi);
-        jPanelKunciDekripsi.setLayout(jPanelKunciDekripsiLayout);
-        jPanelKunciDekripsiLayout.setHorizontalGroup(
-            jPanelKunciDekripsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout containerKunciDekripsiLayout = new javax.swing.GroupLayout(containerKunciDekripsi);
+        containerKunciDekripsi.setLayout(containerKunciDekripsiLayout);
+        containerKunciDekripsiLayout.setHorizontalGroup(
+            containerKunciDekripsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 330, Short.MAX_VALUE)
         );
-        jPanelKunciDekripsiLayout.setVerticalGroup(
-            jPanelKunciDekripsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        containerKunciDekripsiLayout.setVerticalGroup(
+            containerKunciDekripsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
@@ -158,16 +150,16 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
                                                     .addComponent(tblEnkripsi)))
                                             .addGroup(jFramePolyalphabeticalDinamisLayout.createSequentialGroup()
                                                 .addGap(84, 84, 84)
-                                                .addComponent(inputEnkrip, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(inputEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(jFramePolyalphabeticalDinamisLayout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addGap(75, 75, 75)
                                         .addComponent(outputEnkrip, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jPanelKunciEnkripsi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(containerKunciEnkripsi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jFramePolyalphabeticalDinamisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jFramePolyalphabeticalDinamisLayout.createSequentialGroup()
                                     .addContainerGap()
-                                    .addComponent(jPanelKunciDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(containerKunciDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jFramePolyalphabeticalDinamisLayout.createSequentialGroup()
                                     .addGap(55, 55, 55)
                                     .addGroup(jFramePolyalphabeticalDinamisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +169,7 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
                                         .addGroup(jFramePolyalphabeticalDinamisLayout.createSequentialGroup()
                                             .addComponent(jLabel11)
                                             .addGap(76, 76, 76)
-                                            .addComponent(inputDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(inputDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jFramePolyalphabeticalDinamisLayout.createSequentialGroup()
                                             .addComponent(jLabel9)
                                             .addGap(85, 85, 85)
@@ -196,9 +188,9 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jFramePolyalphabeticalDinamisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(inputEnkrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
-                .addComponent(jPanelKunciEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(containerKunciEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tblEnkripsi)
                 .addGap(18, 18, 18)
@@ -212,9 +204,9 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jFramePolyalphabeticalDinamisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(inputDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanelKunciDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(containerKunciDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
                 .addComponent(tblDekripsi)
                 .addGap(18, 18, 18)
@@ -225,6 +217,9 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pilih Kunci - Polyalphabetical Dinamis");
+        setBounds(new java.awt.Rectangle(100, 100, 0, 0));
+        setName("FramePilihKunci"); // NOI18N
 
         tblProses.setText("Proses");
         tblProses.addActionListener(new java.awt.event.ActionListener() {
@@ -233,7 +228,7 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
             }
         });
 
-        jumlahKunci.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", " " }));
+        jumlahKunci.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 
         jLabel1.setText("Enkripsi Teknik Polyalphabetical Dinamis");
 
@@ -282,42 +277,39 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
 
     private void tblProsesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblProsesActionPerformed
         // TODO add your handling code here:
-
         SwingUtilities.invokeLater(() -> {
-            jlhKunci = (Integer) jumlahKunci.getSelectedIndex();
+            jlhKunci = jumlahKunci.getSelectedIndex() + 1;
 
-            // enkripsi
-            jPanelKunciEnkripsi.setLayout(new BoxLayout(jPanelKunciEnkripsi, BoxLayout.Y_AXIS));
-            panelInputEnkripsi = new JPanel[jlhKunci];
+            // Enkripsi
+            containerKunciEnkripsi.setLayout(new BoxLayout(containerKunciEnkripsi, BoxLayout.Y_AXIS));
+            rowKunciEnkripsi = new JPanel[jlhKunci];
             kunciEnkripsi = new JTextField[jlhKunci];
 
-            // dekripsi
-            jPanelKunciDekripsi.setLayout(new BoxLayout(jPanelKunciDekripsi, BoxLayout.Y_AXIS));
-            panelInputDekripsi = new JPanel[jlhKunci];
+            // Dekripsi
+            containerKunciDekripsi.setLayout(new BoxLayout(containerKunciDekripsi, BoxLayout.Y_AXIS));
+            rowKunciDekripsi = new JPanel[jlhKunci];
             kunciDekripsi = new JTextField[jlhKunci];
 
-            for (int i = 0; i < panelInputEnkripsi.length; i++) {
-                // enkripsi
-                panelInputEnkripsi[i] = new JPanel();
+            for (int i = 0; i < jlhKunci; i++) {
+
+                // Enkripsi
+                rowKunciEnkripsi[i] = new JPanel();
                 JLabel labelKunciEnkripsi = new JLabel("Kunci " + (i + 1) + " :");
                 kunciEnkripsi[i] = new JTextField(20);
+                rowKunciEnkripsi[i].add(labelKunciEnkripsi);
+                rowKunciEnkripsi[i].add(kunciEnkripsi[i]);
+                containerKunciEnkripsi.add(rowKunciEnkripsi[i]);
+                jFramePolyalphabeticalDinamis.add(containerKunciEnkripsi);
 
-                panelInputEnkripsi[i].add(labelKunciEnkripsi);
-                panelInputEnkripsi[i].add(kunciEnkripsi[i]);
-                jPanelKunciEnkripsi.add(panelInputEnkripsi[i]);
-                jFramePolyalphabeticalDinamis.add(jPanelKunciEnkripsi);
-
-                // dekripsi
-                panelInputDekripsi[i] = new JPanel();
+                // Dekripsi
+                rowKunciDekripsi[i] = new JPanel();
                 JLabel labelKunciDekripsi = new JLabel("Kunci " + (i + 1) + " :");
                 kunciDekripsi[i] = new JTextField(20);
-
-                panelInputDekripsi[i].add(labelKunciDekripsi);
-                panelInputDekripsi[i].add(kunciDekripsi[i]);
-                jPanelKunciDekripsi.add(panelInputDekripsi[i]);
-                jFramePolyalphabeticalDinamis.add(jPanelKunciDekripsi);
+                rowKunciDekripsi[i].add(labelKunciDekripsi);
+                rowKunciDekripsi[i].add(kunciDekripsi[i]);
+                containerKunciDekripsi.add(rowKunciDekripsi[i]);
+                jFramePolyalphabeticalDinamis.add(containerKunciDekripsi);
             }
-
             jFramePolyalphabeticalDinamis.pack();
             jFramePolyalphabeticalDinamis.setVisible(true);
         }
@@ -328,46 +320,30 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
 
     private void tblDekripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblDekripsiActionPerformed
         // TODO add your handling code here:
-        String inputDekrip = this.inputDekrip.getText().toLowerCase();
-
-        Polyalphabetical.ProsesDekripsi prosesDekripsi = new Polyalphabetical().new ProsesDekripsi();
-
-        String kunciDiProses = new String();
-        String modifiedAlphabet = new String();
-        String hasilEnkripsi = new String();
-
+        String inputTeks = inputDekripsi.getText().toLowerCase();
+        String hasil;
         for (int i = 0; i < jlhKunci; i++) {
-            kunciDiProses = prosesDekripsi.trimKunci(inputDekrip, kunciDekripsi[i].getText());
-            modifiedAlphabet = prosesDekripsi.susunModifiedAlphabet(kunciDiProses);
-            inputDekrip = prosesDekripsi.showResult(modifiedAlphabet, inputDekrip);
+            String inputKunci = kunciDekripsi[(jlhKunci - 1) - i].getText().toLowerCase();
+            inputTeks = Polyalphabetical.prosesDekripsi(inputTeks, inputKunci);
         }
-//
-        hasilEnkripsi = inputDekrip;
-        outputDekrip.setText(hasilEnkripsi);
+        hasil = inputTeks;
+        outputDekrip.setText(hasil);
     }//GEN-LAST:event_tblDekripsiActionPerformed
 
-    private void inputEnkripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEnkripActionPerformed
+    private void inputEnkripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEnkripsiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputEnkripActionPerformed
+    }//GEN-LAST:event_inputEnkripsiActionPerformed
 
     private void tblEnkripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblEnkripsiActionPerformed
         // TODO add your handling code here:
-        String inputEnkrip = this.inputEnkrip.getText().toLowerCase();
-
-        Polyalphabetical.ProsesEnkripsi prosesEnkripsi = new Polyalphabetical().new ProsesEnkripsi();
-
-        String kunciDiProses = new String();
-        String modifiedAlphabet = new String();
-        String hasilEnkripsi = new String();
-
+        String inputTeks = inputEnkripsi.getText().toLowerCase();
+        String hasil;
         for (int i = 0; i < jlhKunci; i++) {
-            kunciDiProses = prosesEnkripsi.trimKunci(inputEnkrip, kunciEnkripsi[i].getText());
-            modifiedAlphabet = prosesEnkripsi.susunModifiedAlphabet(kunciDiProses);
-            inputEnkrip = prosesEnkripsi.showResult(modifiedAlphabet, inputEnkrip);
+            String inputKunci = kunciEnkripsi[i].getText().toLowerCase();
+            inputTeks = Polyalphabetical.prosesEnkripsi(inputTeks, inputKunci);
         }
-//
-        hasilEnkripsi = inputEnkrip;
-        outputEnkrip.setText(hasilEnkripsi);
+        hasil = inputTeks;
+        outputEnkrip.setText(hasil);
     }//GEN-LAST:event_tblEnkripsiActionPerformed
 
     /**
@@ -407,8 +383,10 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField inputDekrip;
-    private javax.swing.JTextField inputEnkrip;
+    private javax.swing.JPanel containerKunciDekripsi;
+    private javax.swing.JPanel containerKunciEnkripsi;
+    private javax.swing.JTextField inputDekripsi;
+    private javax.swing.JTextField inputEnkripsi;
     private javax.swing.JFrame jFramePolyalphabeticalDinamis;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -419,8 +397,6 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanelKunciDekripsi;
-    private javax.swing.JPanel jPanelKunciEnkripsi;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JComboBox<String> jumlahKunci;
     private javax.swing.JTextField outputDekrip;

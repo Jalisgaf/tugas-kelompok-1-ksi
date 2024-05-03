@@ -13,6 +13,9 @@ public class MenuUtama extends javax.swing.JFrame {
     /**
      * Creates new form MenuUtama
      */
+    
+    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+    
     public MenuUtama() {
         initComponents();
     }
@@ -34,6 +37,8 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Kriptografi");
+        setBounds(new java.awt.Rectangle(100, 100, 0, 0));
 
         caesarMenu.setText("Caesar");
         caesarMenu.addActionListener(new java.awt.event.ActionListener() {

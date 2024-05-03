@@ -13,10 +13,10 @@ public class Caesar extends javax.swing.JFrame {
     /**
      * Creates new form Caesar
      */
-    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-    
+    public static final String ALPHABET = MenuUtama.ALPHABET;
+
     public Caesar() {
-        initComponents();    
+        initComponents();
     }
 
     /**
@@ -29,75 +29,77 @@ public class Caesar extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabelCaesarEnkripsi = new javax.swing.JLabel();
-        jLabelInputEnkrip = new javax.swing.JLabel();
-        jLabelKunciEnkrip = new javax.swing.JLabel();
-        jLabelOutputEnkrip = new javax.swing.JLabel();
-        tblEnkrip = new javax.swing.JButton();
-        kunciEnkrip = new javax.swing.JTextField();
-        inputEnkrip = new javax.swing.JTextField();
-        outputEnkrip = new javax.swing.JTextField();
+        jLabelInputEnkripsi = new javax.swing.JLabel();
+        jLabelKunciEnkripsi = new javax.swing.JLabel();
+        jLabelOutputEnkripsi = new javax.swing.JLabel();
+        inputEnkripsi = new javax.swing.JTextField();
+        kunciEnkripsi = new javax.swing.JTextField();
+        outputEnkripsi = new javax.swing.JTextField();
+        tblEnkripsi = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabelCaesarDekripsi = new javax.swing.JLabel();
-        jLabelInputDekrip = new javax.swing.JLabel();
-        jLabelKunciDekrip = new javax.swing.JLabel();
-        jLabelOutputDekrip = new javax.swing.JLabel();
-        tblDekrip = new javax.swing.JButton();
-        inputDekrip = new javax.swing.JTextField();
-        kunciDekrip = new javax.swing.JTextField();
-        outputDekrip = new javax.swing.JTextField();
+        jLabelInputDekripsi = new javax.swing.JLabel();
+        jLabelKunciDekripsi = new javax.swing.JLabel();
+        jLabelOutputDekripsi = new javax.swing.JLabel();
+        inputDekripsi = new javax.swing.JTextField();
+        kunciDekripsi = new javax.swing.JTextField();
+        outputDekripsi = new javax.swing.JTextField();
+        tblDekripsi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Caesar");
+        setBounds(new java.awt.Rectangle(100, 100, 0, 0));
 
         jLabelCaesarEnkripsi.setText("Enkripsi Teknik Subsitusi Caesar");
 
-        jLabelInputEnkrip.setText("Plain Teks");
+        jLabelInputEnkripsi.setText("Plain Teks");
 
-        jLabelKunciEnkrip.setText("Pergeseran Kunci");
+        jLabelKunciEnkripsi.setText("Pergeseran Kunci");
 
-        jLabelOutputEnkrip.setText("Chiper Teks");
+        jLabelOutputEnkripsi.setText("Chiper Teks");
 
-        tblEnkrip.setText("Proses");
-        tblEnkrip.addActionListener(new java.awt.event.ActionListener() {
+        inputEnkripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tblEnkripActionPerformed(evt);
+                inputEnkripsiActionPerformed(evt);
             }
         });
 
-        kunciEnkrip.addActionListener(new java.awt.event.ActionListener() {
+        kunciEnkripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kunciEnkripActionPerformed(evt);
+                kunciEnkripsiActionPerformed(evt);
             }
         });
 
-        inputEnkrip.addActionListener(new java.awt.event.ActionListener() {
+        outputEnkripsi.setEditable(false);
+        outputEnkripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputEnkripActionPerformed(evt);
+                outputEnkripsiActionPerformed(evt);
             }
         });
 
-        outputEnkrip.setEditable(false);
-        outputEnkrip.addActionListener(new java.awt.event.ActionListener() {
+        tblEnkripsi.setText("Proses");
+        tblEnkripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                outputEnkripActionPerformed(evt);
+                tblEnkripsiActionPerformed(evt);
             }
         });
 
-        jLabelCaesarDekripsi.setText("Deskripsi Teknik Subsitusi Caesar");
+        jLabelCaesarDekripsi.setText("Dekripsi Teknik Subsitusi Caesar");
 
-        jLabelInputDekrip.setText("Chiper Teks");
+        jLabelInputDekripsi.setText("Chiper Teks");
 
-        jLabelKunciDekrip.setText("Pergeseran Kunci");
+        jLabelKunciDekripsi.setText("Pergeseran Kunci");
 
-        jLabelOutputDekrip.setText("Plain Teks");
+        jLabelOutputDekripsi.setText("Plain Teks");
 
-        tblDekrip.setText("Proses");
-        tblDekrip.addActionListener(new java.awt.event.ActionListener() {
+        outputDekripsi.setEditable(false);
+
+        tblDekripsi.setText("Proses");
+        tblDekripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tblDekripActionPerformed(evt);
+                tblDekripsiActionPerformed(evt);
             }
         });
-
-        outputDekrip.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,41 +115,41 @@ public class Caesar extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelOutputEnkrip)
+                                .addComponent(jLabelOutputEnkripsi)
                                 .addGap(56, 56, 56)
-                                .addComponent(outputEnkrip, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(outputEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelKunciEnkrip)
-                                    .addComponent(jLabelInputEnkrip))
+                                    .addComponent(jLabelKunciEnkripsi)
+                                    .addComponent(jLabelInputEnkripsi))
                                 .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(inputEnkrip, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(kunciEnkrip, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(inputEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(kunciEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(93, 93, 93)
-                        .addComponent(tblEnkrip))
+                        .addComponent(tblEnkripsi))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(125, 125, 125)
                         .addComponent(jLabelCaesarDekripsi))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelOutputDekrip)
+                            .addComponent(jLabelOutputDekripsi)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelInputDekrip)
-                                    .addComponent(jLabelKunciDekrip))
+                                    .addComponent(jLabelInputDekripsi)
+                                    .addComponent(jLabelKunciDekripsi))
                                 .addGap(23, 23, 23)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(inputDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(kunciDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(inputDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(kunciDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(114, 114, 114)
-                                .addComponent(outputDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(outputDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(89, 89, 89)
-                        .addComponent(tblDekrip)))
+                        .addComponent(tblDekripsi)))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -157,105 +159,84 @@ public class Caesar extends javax.swing.JFrame {
                 .addComponent(jLabelCaesarEnkripsi)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelInputEnkrip)
-                    .addComponent(inputEnkrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelInputEnkripsi)
+                    .addComponent(inputEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelKunciEnkrip)
-                    .addComponent(kunciEnkrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelKunciEnkripsi)
+                    .addComponent(kunciEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
-                .addComponent(tblEnkrip)
+                .addComponent(tblEnkripsi)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelOutputEnkrip)
-                    .addComponent(outputEnkrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelOutputEnkripsi)
+                    .addComponent(outputEnkripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelCaesarDekripsi)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelInputDekrip)
-                    .addComponent(inputDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelInputDekripsi)
+                    .addComponent(inputDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelKunciDekrip)
-                    .addComponent(kunciDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelKunciDekripsi)
+                    .addComponent(kunciDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(tblDekrip)
+                .addComponent(tblDekripsi)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelOutputDekrip)
-                    .addComponent(outputDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelOutputDekripsi)
+                    .addComponent(outputDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tblEnkripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblEnkripActionPerformed
+    private void tblEnkripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblEnkripsiActionPerformed
         // TODO add your handling code here:
-        String inputEnkripVar = this.inputEnkrip.getText().toLowerCase();
-        int kunciEnkripVar = Integer.parseInt(this.kunciEnkrip.getText());
-        
-        String enkripStr = "";
-        
-        for (int i = 0; i < inputEnkripVar.length(); i++)   
-        {   
-            // get position of each character of inputEnkripVar in ALPHABET   
-            int pos = ALPHABET.indexOf(inputEnkripVar.charAt(i));   
-              
-            // get encrypted char for each char of inputEnkripVar   
-            int enkripPos = (kunciEnkripVar + pos) % 26;   
-            char enkripChar = ALPHABET.charAt(enkripPos);   
-              
-            // add encrypted char to encrypted string   
-            enkripStr += enkripChar;   
-        }   
-        
-        outputEnkrip.setText(enkripStr);
-    }//GEN-LAST:event_tblEnkripActionPerformed
+        String inputTeks = inputEnkripsi.getText().toLowerCase();
+        int inputKunci = Integer.parseInt(kunciEnkripsi.getText());
+        String hasil = "";
+        for (int i = 0; i < inputTeks.length(); i++) {
+            int pos = ALPHABET.indexOf(inputTeks.charAt(i));
+            int posHasil = (inputKunci + pos) % 26;
+            char charHasil = ALPHABET.charAt(posHasil);
+            hasil += charHasil;
+        }
+        outputEnkripsi.setText(hasil);
+    }//GEN-LAST:event_tblEnkripsiActionPerformed
 
-    private void kunciEnkripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kunciEnkripActionPerformed
+    private void kunciEnkripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kunciEnkripsiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_kunciEnkripActionPerformed
+    }//GEN-LAST:event_kunciEnkripsiActionPerformed
 
-    private void inputEnkripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEnkripActionPerformed
+    private void inputEnkripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEnkripsiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputEnkripActionPerformed
+    }//GEN-LAST:event_inputEnkripsiActionPerformed
 
-    private void outputEnkripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputEnkripActionPerformed
+    private void outputEnkripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputEnkripsiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_outputEnkripActionPerformed
+    }//GEN-LAST:event_outputEnkripsiActionPerformed
 
-    private void tblDekripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblDekripActionPerformed
+    private void tblDekripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblDekripsiActionPerformed
         // TODO add your handling code here:
-        String inputDekripVar = this.inputDekrip.getText().toLowerCase();
-        int kunciDekripVar = Integer.parseInt(this.kunciDekrip.getText());
-        
-        String dekripStr = "";
-        
-        for (int i = 0; i < inputDekripVar.length(); i++)   
-        {   
-              
-            // get position of each character of inputStr in ALPHABET   
-            int pos = ALPHABET.indexOf(inputDekripVar.charAt(i));   
-              
-            // get decrypted char for each char of inputStr   
-            int dekripPos = (pos - kunciDekripVar) % 26;   
-              
-            // if decryptPos is negative   
-            if (dekripPos < 0){   
-                dekripPos = ALPHABET.length() + dekripPos;   
-            }   
-            char dekripChar = ALPHABET.charAt(dekripPos);   
-              
-            // add decrypted char to decrypted string   
-            dekripStr += dekripChar;   
-        }      
-        
-        outputDekrip.setText(dekripStr);
-    }//GEN-LAST:event_tblDekripActionPerformed
+        String inputTeks = inputDekripsi.getText().toLowerCase();
+        int inputKunci = Integer.parseInt(kunciDekripsi.getText());
+        String hasil = "";
+        for (int i = 0; i < inputTeks.length(); i++) {
+            int pos = ALPHABET.indexOf(inputTeks.charAt(i));
+            int posHasil = (pos - inputKunci) % 26;
+            if (posHasil < 0) {
+                posHasil += ALPHABET.length();
+            }
+            char charHasil = ALPHABET.charAt(posHasil);
+            hasil += charHasil;
+        }
+        outputDekripsi.setText(hasil);
+    }//GEN-LAST:event_tblDekripsiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -293,22 +274,22 @@ public class Caesar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField inputDekrip;
-    private javax.swing.JTextField inputEnkrip;
+    private javax.swing.JTextField inputDekripsi;
+    private javax.swing.JTextField inputEnkripsi;
     private javax.swing.JLabel jLabelCaesarDekripsi;
     private javax.swing.JLabel jLabelCaesarEnkripsi;
-    private javax.swing.JLabel jLabelInputDekrip;
-    private javax.swing.JLabel jLabelInputEnkrip;
-    private javax.swing.JLabel jLabelKunciDekrip;
-    private javax.swing.JLabel jLabelKunciEnkrip;
-    private javax.swing.JLabel jLabelOutputDekrip;
-    private javax.swing.JLabel jLabelOutputEnkrip;
+    private javax.swing.JLabel jLabelInputDekripsi;
+    private javax.swing.JLabel jLabelInputEnkripsi;
+    private javax.swing.JLabel jLabelKunciDekripsi;
+    private javax.swing.JLabel jLabelKunciEnkripsi;
+    private javax.swing.JLabel jLabelOutputDekripsi;
+    private javax.swing.JLabel jLabelOutputEnkripsi;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField kunciDekrip;
-    private javax.swing.JTextField kunciEnkrip;
-    private javax.swing.JTextField outputDekrip;
-    private javax.swing.JTextField outputEnkrip;
-    private javax.swing.JButton tblDekrip;
-    private javax.swing.JButton tblEnkrip;
+    private javax.swing.JTextField kunciDekripsi;
+    private javax.swing.JTextField kunciEnkripsi;
+    private javax.swing.JTextField outputDekripsi;
+    private javax.swing.JTextField outputEnkripsi;
+    private javax.swing.JButton tblDekripsi;
+    private javax.swing.JButton tblEnkripsi;
     // End of variables declaration//GEN-END:variables
 }

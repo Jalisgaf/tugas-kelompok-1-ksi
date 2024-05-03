@@ -4,9 +4,6 @@
  */
 package tugaskelompok;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  *
  * @author jalisgaf
@@ -16,118 +13,67 @@ public class Polyalphabetical extends javax.swing.JFrame {
     /**
      * Creates new form Polyalphabetical
      */
-    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+    public static final String ALPHABET = MenuUtama.ALPHABET;
 
     public Polyalphabetical() {
         initComponents();
     }
 
-    public class ProsesEnkripsi {
-
-        public String trimKunci(String inputEnkripVar, String kunciEnkripVar) {
-            String kunciDiProses = new String();
-            int tempIndex = 0;
-            for (int i = 0; i < kunciEnkripVar.length(); i++) {
-                if (i == 0) {
-                    kunciDiProses = String.valueOf(kunciEnkripVar.charAt(i));
-                } else if (kunciDiProses.contains(String.valueOf(kunciEnkripVar.charAt(i)))) {
-                    var tempChar = kunciEnkripVar.charAt(i);
-                    tempIndex = kunciDiProses.indexOf(tempChar);
-                    StringBuilder sb = new StringBuilder(kunciDiProses);
-                    sb.deleteCharAt(tempIndex);
-                    kunciDiProses = sb.toString() + tempChar;
-                } else if (kunciEnkripVar.charAt(i) != kunciEnkripVar.charAt(i - 1)) {
-                    kunciDiProses = kunciDiProses.concat(String.valueOf(kunciEnkripVar.charAt(i)));
-                }
+    public static String trimKunci(String inputKunci) {
+        String kunciDiproses = "";
+        int indexCharInputKunci = 0;
+        for (int i = 0; i < inputKunci.length(); i++) {
+            char charInputKunci = inputKunci.charAt(i);
+            if (i == 0) {
+                kunciDiproses = String.valueOf(charInputKunci);
+            } else if (kunciDiproses.contains(String.valueOf(charInputKunci))) {
+                indexCharInputKunci = kunciDiproses.indexOf(String.valueOf(charInputKunci));
+                StringBuilder sb = new StringBuilder(kunciDiproses);
+                sb.deleteCharAt(indexCharInputKunci);
+                kunciDiproses = sb.toString() + charInputKunci;
+            } else if (inputKunci.charAt(i) != inputKunci.charAt(i - 1)) {
+                kunciDiproses += charInputKunci;
             }
-            return kunciDiProses;
         }
-
-        public String susunModifiedAlphabet(String kunciDiProses) {
-            String modifiedAlphabet = new String();
-            StringBuilder tempVar = new StringBuilder(modifiedAlphabet);
-            for (int i = 0; i < ALPHABET.length(); i++) {
-                char currentChar = ALPHABET.charAt(i);
-
-                // Check if the character is not already in modifiedAlphabet
-                if (!kunciDiProses.contains(String.valueOf(currentChar))) {
-                    // Append the character to modifiedAlphabet using StringBuilder
-                    tempVar.append(currentChar).toString();
-                }
-            }
-            modifiedAlphabet = kunciDiProses + tempVar;
-            return modifiedAlphabet;
-        }
-
-        public String showResult(String modifiedAlphabet, String inputEnkripVar) {
-            StringBuilder hasilEnkripsi = new StringBuilder();
-            for (char c : inputEnkripVar.toCharArray()) {
-                // Find the index of the character in the alphabet
-                int index = ALPHABET.indexOf(c);
-                // Use the same index to get the corresponding character from the 'enkripsi' string
-                char encryptedChar = modifiedAlphabet.charAt(index);
-                // Append the encrypted character to the result
-                hasilEnkripsi.append(encryptedChar);
-            }
-            return hasilEnkripsi.toString();
-        }
-
+        return kunciDiproses;
     }
 
-    public class ProsesDekripsi {
-
-        public String trimKunci(String inputDekripVar, String kunciDekripVar) {
-            String kunciDiProses = new String();
-            int tempIndex = 0;
-
-            for (int i = 0; i < kunciDekripVar.length(); i++) {
-                if (i == 0) {
-                    kunciDiProses = String.valueOf(kunciDekripVar.charAt(i));
-                } else if (kunciDiProses.contains(String.valueOf(kunciDekripVar.charAt(i)))) {
-                    var tempChar = kunciDekripVar.charAt(i);
-                    tempIndex = kunciDiProses.indexOf(tempChar);
-                    StringBuilder sb = new StringBuilder(kunciDiProses);
-                    sb.deleteCharAt(tempIndex);
-                    kunciDiProses = sb.toString() + tempChar;
-                } else if (kunciDekripVar.charAt(i) != kunciDekripVar.charAt(i - 1)) {
-                    kunciDiProses = kunciDiProses.concat(String.valueOf(kunciDekripVar.charAt(i)));
-                }
+    public static String susunModifiedAlphabet(String inputKunci) {
+        String kunciDiproses = trimKunci(inputKunci);
+        String modifiedAlphabet = "";
+        String sisaAlphabet = "";
+        for (int i = 0; i < ALPHABET.length(); i++) {
+            char currentChar = ALPHABET.charAt(i);
+            if (!kunciDiproses.contains(String.valueOf(currentChar))) {
+                sisaAlphabet += String.valueOf(currentChar);
             }
-
-            return kunciDiProses;
         }
+        modifiedAlphabet = kunciDiproses + sisaAlphabet;
+        return modifiedAlphabet;
+    }
 
-        public String susunModifiedAlphabet(String kunciDiProses) {
-            String modifiedAlphabet = new String();
-            StringBuilder tempVar = new StringBuilder(modifiedAlphabet);
-
-            for (int i = 0; i < ALPHABET.length(); i++) {
-                char currentChar = ALPHABET.charAt(i);
-
-                // Check if the character is not already in modifiedAlphabet
-                if (!kunciDiProses.contains(String.valueOf(currentChar))) {
-                    // Append the character to modifiedAlphabet using StringBuilder
-                    tempVar.append(currentChar).toString();
-                }
-            }
-            modifiedAlphabet = kunciDiProses + tempVar;
-            return modifiedAlphabet;
+    public static String prosesEnkripsi(String inputTeks, String inputKunci) {
+        String modifiedAlphabet = susunModifiedAlphabet(inputKunci);
+        String hasil = "";
+        for (int i = 0; i < inputTeks.length(); i++) {
+            char charInputTeks = inputTeks.charAt(i);
+            int indexCharInputTeks = ALPHABET.indexOf(charInputTeks);
+            char charHasil = modifiedAlphabet.charAt(indexCharInputTeks);
+            hasil += charHasil;
         }
+        return hasil;
+    }
 
-        public String showResult(String modifiedAlphabet, String inputDekripVar) {
-            StringBuilder hasilDekripsi = new StringBuilder();
-
-            // Iterate through each character in the encrypted input
-            for (char encryptedChar : inputDekripVar.toCharArray()) {
-                // Find the index of the character in the modified alphabet
-                int index = modifiedAlphabet.indexOf(encryptedChar);
-                // Use the same index to get the corresponding character from the original alphabet
-                char decryptedChar = ALPHABET.charAt(index);
-                // Append the decrypted character to the result
-                hasilDekripsi.append(decryptedChar);
-            }
-            return hasilDekripsi.toString();
+    public static String prosesDekripsi(String inputTeks, String inputKunci) {
+        String modifiedAlphabet = susunModifiedAlphabet(inputKunci);
+        String hasil = "";
+        for (int i = 0; i < inputTeks.length(); i++) {
+            char charInputTeks = inputTeks.charAt(i);
+            int indexCharInputTeks = modifiedAlphabet.indexOf(charInputTeks);
+            char charHasil = ALPHABET.charAt(indexCharInputTeks);
+            hasil += charHasil;
         }
+        return hasil;
     }
 
     /**
@@ -139,25 +85,29 @@ public class Polyalphabetical extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        tblEnkripsi = new javax.swing.JButton();
-        kunciEnkripsi = new javax.swing.JTextField();
         inputEnkripsi = new javax.swing.JTextField();
+        kunciEnkripsi = new javax.swing.JTextField();
         outputEnkripsi = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        tblDekrip = new javax.swing.JButton();
-        inputDekrip = new javax.swing.JTextField();
-        kunciDekrip = new javax.swing.JTextField();
-        outputDekripsi = new javax.swing.JTextField();
+        tblEnkripsi = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        inputDekripsi = new javax.swing.JTextField();
+        kunciDekripsi = new javax.swing.JTextField();
+        outputDekripsi = new javax.swing.JTextField();
+        tblDekripsi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Polyalphabetical");
+        setBounds(new java.awt.Rectangle(100, 100, 0, 0));
+
+        jLabel1.setText("Enkripsi Teknik Polyalphabetical");
 
         jLabel2.setText("Plain Teks");
 
@@ -165,10 +115,9 @@ public class Polyalphabetical extends javax.swing.JFrame {
 
         jLabel4.setText("Chiper Teks");
 
-        tblEnkripsi.setText("Proses");
-        tblEnkripsi.addActionListener(new java.awt.event.ActionListener() {
+        inputEnkripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tblEnkripsiActionPerformed(evt);
+                inputEnkripsiActionPerformed(evt);
             }
         });
 
@@ -178,34 +127,36 @@ public class Polyalphabetical extends javax.swing.JFrame {
             }
         });
 
-        inputEnkripsi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputEnkripsiActionPerformed(evt);
-            }
-        });
-
+        outputEnkripsi.setEditable(false);
         outputEnkripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 outputEnkripsiActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Enkripsi Teknik Polyalphabetical");
-
-        tblDekrip.setText("Proses");
-        tblDekrip.addActionListener(new java.awt.event.ActionListener() {
+        tblEnkripsi.setText("Proses");
+        tblEnkripsi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tblDekripActionPerformed(evt);
+                tblEnkripsiActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Deskripsi Teknik Polyalphabetical");
+        jLabel5.setText("Dekripsi Teknik Polyalphabetical");
 
         jLabel6.setText("Chiper Teks");
 
         jLabel7.setText("Kunci 1");
 
         jLabel8.setText("Plain Teks");
+
+        outputDekripsi.setEditable(false);
+
+        tblDekripsi.setText("Proses");
+        tblDekripsi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tblDekripsiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -229,8 +180,8 @@ public class Polyalphabetical extends javax.swing.JFrame {
                                             .addComponent(jLabel7))
                                         .addGap(23, 23, 23)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(inputDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(kunciDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(inputDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(kunciDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel8)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -238,7 +189,7 @@ public class Polyalphabetical extends javax.swing.JFrame {
                                             .addComponent(outputDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(89, 89, 89)
-                                .addComponent(tblDekrip)))
+                                .addComponent(tblDekripsi)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jSeparator1))
                 .addContainerGap())
@@ -293,13 +244,13 @@ public class Polyalphabetical extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(inputDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7)
-                    .addComponent(kunciDekrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kunciDekripsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(tblDekrip)
+                .addComponent(tblDekripsi)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -311,15 +262,11 @@ public class Polyalphabetical extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblEnkripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblEnkripsiActionPerformed
-        String inputEnkripVar = inputEnkripsi.getText().toLowerCase();
-        String kunciEnkripVar = kunciEnkripsi.getText().toLowerCase();
-
-        ProsesEnkripsi prosesEnkripsi = new ProsesEnkripsi();
-        String kunciDiProses = prosesEnkripsi.trimKunci(inputEnkripVar, kunciEnkripVar);
-        String modifiedAlphabet = prosesEnkripsi.susunModifiedAlphabet(kunciDiProses);
-        String hasilEnkripsi = prosesEnkripsi.showResult(modifiedAlphabet, inputEnkripVar);
-
-        outputEnkripsi.setText(hasilEnkripsi);
+        // TODO add your handling code here:
+        String inputTeks = inputEnkripsi.getText().toLowerCase();
+        String inputKunci = kunciEnkripsi.getText().toLowerCase();
+        String hasil = Polyalphabetical.prosesEnkripsi(inputTeks, inputKunci);
+        outputEnkripsi.setText(hasil);
     }//GEN-LAST:event_tblEnkripsiActionPerformed
 
     private void kunciEnkripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kunciEnkripsiActionPerformed
@@ -334,18 +281,13 @@ public class Polyalphabetical extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_outputEnkripsiActionPerformed
 
-    private void tblDekripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblDekripActionPerformed
+    private void tblDekripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblDekripsiActionPerformed
         // TODO add your handling code here:
-        String inputDekripVar = this.inputDekrip.getText().toLowerCase();
-        String kunciDekripVar = this.kunciDekrip.getText().toLowerCase();
-        
-        ProsesDekripsi prosesDekripsi = new ProsesDekripsi();
-        String kunciDiProses = prosesDekripsi.trimKunci(inputDekripVar, kunciDekripVar);
-        String modifiedAlphabet = prosesDekripsi.susunModifiedAlphabet(kunciDiProses);
-        String hasilDekripsi = prosesDekripsi.showResult(modifiedAlphabet, inputDekripVar);
-
-        outputDekripsi.setText(hasilDekripsi);
-    }//GEN-LAST:event_tblDekripActionPerformed
+        String inputTeks = inputDekripsi.getText().toLowerCase();
+        String inputKunci = kunciDekripsi.getText().toLowerCase();
+        String hasil = Polyalphabetical.prosesDekripsi(inputTeks, inputKunci);
+        outputDekripsi.setText(hasil);
+    }//GEN-LAST:event_tblDekripsiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -383,7 +325,7 @@ public class Polyalphabetical extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField inputDekrip;
+    private javax.swing.JTextField inputDekripsi;
     private javax.swing.JTextField inputEnkripsi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -394,11 +336,11 @@ public class Polyalphabetical extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField kunciDekrip;
+    private javax.swing.JTextField kunciDekripsi;
     private javax.swing.JTextField kunciEnkripsi;
     private javax.swing.JTextField outputDekripsi;
     private javax.swing.JTextField outputEnkripsi;
-    private javax.swing.JButton tblDekrip;
+    private javax.swing.JButton tblDekripsi;
     private javax.swing.JButton tblEnkripsi;
     // End of variables declaration//GEN-END:variables
 }
