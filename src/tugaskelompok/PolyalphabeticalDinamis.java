@@ -312,6 +312,7 @@ public class PolyalphabeticalDinamis extends javax.swing.JFrame {
             }
             jFramePolyalphabeticalDinamis.pack();
             jFramePolyalphabeticalDinamis.setVisible(true);
+            this.dispose();
         }
         );
 

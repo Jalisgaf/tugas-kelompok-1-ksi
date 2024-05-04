@@ -25,8 +25,13 @@ public class Polyalphabetical extends javax.swing.JFrame {
         for (int i = 0; i < inputKunci.length(); i++) {
             char charInputKunci = inputKunci.charAt(i);
             if (i == 0) {
+                // Ambil char pertama
                 kunciDiproses = String.valueOf(charInputKunci);
             } else if (kunciDiproses.contains(String.valueOf(charInputKunci))) {
+                // Kalau char di inputKunci sudah ada di kunciDiproses
+                // Ambil index si char
+                // Hapus char kunciDiproses di posisi sesuai index tadi
+                // Gabung kunciDiproses yg sudah dihapus salah satu char nya dengan char yang sekarang
                 indexCharInputKunci = kunciDiproses.indexOf(String.valueOf(charInputKunci));
                 StringBuilder sb = new StringBuilder(kunciDiproses);
                 sb.deleteCharAt(indexCharInputKunci);
@@ -40,11 +45,12 @@ public class Polyalphabetical extends javax.swing.JFrame {
 
     public static String susunModifiedAlphabet(String inputKunci) {
         String kunciDiproses = trimKunci(inputKunci);
-        String modifiedAlphabet = "";
-        String sisaAlphabet = "";
+        String modifiedAlphabet = ""; // Hasil gabungan kunciDiproses dan alphabet yang belum ada
+        String sisaAlphabet = ""; // Alphabet selain yang ada di kunciDiproese
         for (int i = 0; i < ALPHABET.length(); i++) {
             char currentChar = ALPHABET.charAt(i);
             if (!kunciDiproses.contains(String.valueOf(currentChar))) {
+                // Kalau alphabtenya belum ada di kunciDiproses, masukkan
                 sisaAlphabet += String.valueOf(currentChar);
             }
         }
